@@ -1,0 +1,4 @@
+numpy>=1.24
+scipy>=1.11
+matplotlib>=3.7
+# noetic-machine>=1.0  # install from https://github.com/PORTEMANN/noetic-machine
