@@ -4,18 +4,20 @@
 [![Release](https://img.shields.io/github/v/release/PORTEMANN/noetic-applications)](https://github.com/PORTEMANN/noetic-applications/releases)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
 
-> **One radial operator. One potential form. Fourteen experimental tests.**
-> A non-perturbative finite-core solver applied to atomic, nuclear, particle, condensed-matter, and molecular physics.
+> **One radial operator. One potential form. Thirty-two experimental tests.**
+> A non-perturbative finite-core solver applied to atomic, nuclear, particle, condensed-matter, molecular, and quantum-chemistry physics.
 
 ---
 
 ## TL;DR — What is this?
 
 ```
-21 benchmarks  →  17 successes  |  3 partial  |  0 falsifications
+32 benchmarks  →  24 successes  |  7 partial  |  0 falsifications
 ```
 
 This repository contains reproducible case studies applying a **single finite-core radial operator** to well-defined experimental problems. Each case is a self-contained Python script that computes a verdict — success, partial success, instructive failure, or boundary located — against published data. No parameter was adjusted to force agreement.
+
+### P7–P20 (v1.0 — Foundations)
 
 | # | Problem | Field | Verdict |
 |---|---------|-------|---------|
@@ -34,6 +36,22 @@ This repository contains reproducible case studies applying a **single finite-co
 | P19 | Diffuse surface bound | Nuclear | ✅ Failure → measured bound: a≈0.28 fm |
 | P20 | H₂⁺ molecular frontier | Molecular | ✅ Exact; frontier located |
 
+### P21–P31 (v2.0 — Extensions)
+
+| # | Problem | Field | Verdict |
+|---|---------|-------|---------|
+| P21 | Bond polarity and dipole moments | Molecular/Chem | ✅ Success (7/7); χ=(IE+EA)/2 lever |
+| P22 | Double-beta decay (2νββ) | Nuclear/Particle | ⚠️ Partial (5/6); pairing mechanism derived |
+| P23 | Nuclear magnetic moments (Schmidt) | Nuclear | ✅ Success (6/6); signs 12/12, within 10% |
+| P24 | Fractional quantum Hall (Jain) | Condensed | ✅ Success (6/6); ν=p/(2p±1) |
+| P25 | Topological insulators (2D/3D) | Condensed | ✅ Success (6/6); Z₂ invariant |
+| P26 | Deriving nuclear surface diffusivity | Nuclear | ⚠️ Partial (4/5); a≈0.28 fm confirmed |
+| P27 | Two-electron correlation (He, H₂) | Atomic/Molecular | ✅ Success (5/5); He energy 2%, ionization 10% |
+| P28 | Unification: surface + correlation | Nuclear/Atomic | ✅ Structural (7/7); κ_opt discriminates |
+| P29 | Calibrating the isovector lever | Nuclear | ✅ Discriminating (5/6); κ_opt≈0 |
+| P30 | The Kato cusp | Atomic/QChem | ⚠️ Partial (3/5); cusp ratio 1.9 vs 2.0 |
+| P31 | The r₁₂ frontier declared constitutive | Atomic/QChem | ⚠️ Frontier (3/5); explicit r₁₂ needed |
+
 ## Quick Start
 
 ```bash
@@ -48,9 +66,9 @@ Every script is self-contained, writes JSON + PNG, and exits with a boolean verd
 ## Repository Structure
 
 ```
-├── src/          # 14 Python solvers (≈ 100 lines each)
-├── data/         # 14 JSON result files with computed values
-├── docs/         # 15 Markdown case-study write-ups
+├── src/          # 25 Python solvers (≈ 100–200 lines each)
+├── data/         # 25 JSON result files with computed values
+├── docs/         # 26 Markdown case-study write-ups
 ├── LICENSE       # MIT
 └── README.md     # This file
 ```
@@ -63,24 +81,29 @@ All cases use the **same underlying operator**:
 - **Non-perturbative discretization**: direct diagonalization, no expansion in `1/Z`
 - **Single truth criterion**: `δ_1s = (E_finite − E_point)/|E_point|` — the finite-core signature
 
-From this operator, phenomena at four scales emerge:
-- **Atomic** (P7, P10, P14): isotope shifts, periodic-table structure
-- **Nuclear** (P8, P9, P11, P13, P16, P19): EMC effect, valley of stability, decay modes
+From this operator, phenomena at five scales emerge:
+- **Atomic** (P7, P10, P14, P27, P30, P31): isotope shifts, periodic-table structure, correlation
+- **Nuclear** (P8, P9, P11, P13, P16, P19, P22, P23, P26, P28, P29): EMC effect, valley, decay modes
 - **Particle** (P13, P15): Regge slope, charmonium spectrum, confinement
-- **Condensed / Molecular** (P17, P18, P20): AB effect, topological states, H₂⁺
+- **Condensed / Molecular** (P17, P18, P20, P21, P24, P25): AB effect, topological states, polarity
+- **Quantum Chemistry** (P21, P27, P30, P31): dipole moments, Kato cusp, explicit r₁₂
 
 ## Honest Reporting
 
 | Type | Cases | Description |
 |------|-------|-------------|
-| ✅ Success | 17 | Quantitative agreement with experiment |
-| ⚠️ Partial | 3 | Form captured; fine structure escapes |
+| ✅ Success | 24 | Quantitative agreement with experiment |
+| ⚠️ Partial | 7 | Form captured; fine structure escapes |
 | ❌ Falsification | 0 | No contradiction found |
 
 **P9** (PREX–CREX) is published as a **negative result** with the same rigor as successes.  
 **P11** (valley of stability) and **P16** (decay map) are **partial successes** — the smooth model misses magic numbers and boundary nuclides.  
 **P19** transforms the P9 failure into a **quantitative bound**: the sharp-core model is insufficient; ~0.28 fm of surface diffusivity is required.  
-**P20** locates the **many-body frontier**: H₂⁺ is exact; H₂ requires electron correlation.
+**P20** locates the **many-body frontier**: H₂⁺ is exact; H₂ requires electron correlation.  
+**P22** derives the pairing mechanism for 2νββ but misses the 2× suppression in ⁷⁶Ge.  
+**P26** confirms the P19 bound across 5 nuclei but the sharp-core model still overpredicts radii.  
+**P30** captures the Kato cusp ratio within 5% but the correlated tail remains approximate.  
+**P31** declares explicit r₁₂ dependence constitutive for He ground-state energy beyond 2%.
 
 ## Requirements
 
@@ -98,7 +121,7 @@ pip install -r requirements.txt
   author = {Portemann, Patrice},
   title = {Noetic Applications: Case Studies on Experimental Data},
   url = {https://github.com/PORTEMANN/noetic-applications},
-  version = {1.0},
+  version = {2.0},
   year = {2027}
 }
 ```
