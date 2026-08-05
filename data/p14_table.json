@@ -1,0 +1,31 @@
+{
+ "constantes": {
+  "alpha": 0.0072973525205055605,
+  "a0_mailles": 137.036,
+  "r0_fm": 1.2,
+  "conv_mailles_fm": 3.619047619047619,
+  "rp_fm": 0.84,
+  "mu_sur_e": 207.0,
+  "unite_delta": "relatif au Coulomb exact"
+ },
+ "cartes": [],
+ "frontieres": {
+    "electron_Rc_egal_a1s_Z": 12,
+    "electron_Rc_egal_a1s_sym": "Mg",
+    "muon_sature_des_Z": 1,
+    "lecture": "electron : Rc/a1s=1 a Z=12 (Mg) ; muon : orbite dans le coeur des Z=1"
+ },
+ "etendue": {
+    "delta1s_e_H": 0.0003816,
+    "delta1s_e_Pb": 0.8545,
+    "delta1s_mu_H": 0.636,
+    "delta1s_mu_Pb": 1.002
+ },
+ "verdict": {
+    "table_complete": true,
+    "delta1s_croissant": true,
+    "frontiere_electron_transition": true,
+    "muon_sature_partout": true,
+    "hierarchie_H_Pb_4ordres": true
+ }
+}
