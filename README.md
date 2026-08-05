@@ -17,7 +17,7 @@
 
 This repository contains reproducible case studies applying a **single finite-core radial operator** to well-defined experimental problems. Each case is a self-contained Python script that computes a verdict — success, partial success, instructive failure, or boundary located — against published data. No parameter was adjusted to force agreement.
 
-### P7–P20 (v1.0 — Foundations)
+### P7–P20 — Foundations
 
 | # | Problem | Field | Verdict |
 |---|---------|-------|---------|
@@ -36,14 +36,14 @@ This repository contains reproducible case studies applying a **single finite-co
 | P19 | Diffuse surface bound | Nuclear | ✅ Failure → measured bound: a≈0.28 fm |
 | P20 | H₂⁺ molecular frontier | Molecular | ✅ Exact; frontier located |
 
-### P21–P31 (v2.0 — Extensions)
+### P21–P31 — Extensions
 
 | # | Problem | Field | Verdict |
 |---|---------|-------|---------|
 | P21 | Bond polarity and dipole moments | Molecular/Chem | ✅ Success (7/7); χ=(IE+EA)/2 lever |
 | P22 | Double-beta decay (2νββ) | Nuclear/Particle | ⚠️ Partial (5/6); pairing mechanism derived |
 | P23 | Nuclear magnetic moments (Schmidt) | Nuclear | ✅ Success (6/6); signs 12/12, within 10% |
-| P24 | Fractional quantum Hall (Jain) | Condensed | ✅ Success (6/6); ν=p/(2p±1) |
+| P24 | Fractional quantum Hall (Jain) | Condensed | ✅ Success (6/6); ν=n/(2pn±1) |
 | P25 | Topological insulators (2D/3D) | Condensed | ✅ Success (6/6); Z₂ invariant |
 | P26 | Deriving nuclear surface diffusivity | Nuclear | ⚠️ Partial (4/5); a≈0.28 fm confirmed |
 | P27 | Two-electron correlation (He, H₂) | Atomic/Molecular | ✅ Success (5/5); He energy 2%, ionization 10% |
