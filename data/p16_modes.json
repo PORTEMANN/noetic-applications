@@ -1,0 +1,13 @@
+{
+ "coefficients": {"av":15.8,"as":18.3,"aa":23.2,"ap":12.0,"ac_beta":0.71,"ac_alpha":0.54,
+                  "decouplage":"ac_beta (Z*) vs ac_alpha (Qalpha) = tension de surface P11"},
+ "bilan": {"total":24,"accord":18,"score":"18/24","stable":"6/9","beta-":"3/6","beta+":"3/3","alpha":"6/6"},
+ "carte_AZ": {"desc":"0 stable, 1 beta-, 2 beta+, 3 alpha, 4 fission"},
+ "verdict": {
+  "beta_stables_corrects": false,
+  "alpha_identifies": true,
+  "score_global": false,
+  "fissilite_seuil": true,
+  "ligne_stabilite": true
+ }
+}
